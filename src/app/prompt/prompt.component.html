@@ -1,0 +1,10 @@
+<h3>Prompt:</h3>
+<textarea rows="10" cols="100" [(ngModel)]="promptText" ></textarea><br>
+<button (click)="SpeechToText()">Speech to Text</button>
+<p>{{ paragraphText() }}</p>
+<input type="file" (change)="onFileSelected($event)"/>
+<h3>Question:</h3>
+<textarea rows="5" cols="100" [(ngModel)]="questionText" ></textarea><br>
+<button (click)="askQuestion()">Ask Question</button>
+<h3>Response:</h3>
+<textarea rows="10" cols="100" [(ngModel)]="responseText" ></textarea>
