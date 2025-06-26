@@ -1,14 +1,22 @@
-<table border="1">
+<h3>Products</h3>
+<p>List of available products:</p>
+<table>
+    <thead>
     <tr>
         <th>Product ID</th>
         <th>Name</th>
         <th>Price</th>
         <th>Quantity</th>
+        <th>Image</th>
     </tr>
+    </thead>
+    <tbody>
     <tr *ngFor="let product of products">
         <td>{{ product.PId }}</td>
         <td>{{ product.PName }}</td>
-        <td>{{ product.Price | currency }}</td>
+        <td>{{ product.Price }}</td>
         <td>{{ product.Quantity }}</td>
+        <td><img [src]="product.Image" alt="{{ product.PName }}" width="100" /></td>
     </tr>
+    </tbody>
 </table>

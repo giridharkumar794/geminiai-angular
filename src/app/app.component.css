@@ -1,0 +1,19 @@
+/* Style for the Prompt link */
+a[routerLink="/prompt"] {
+  display: inline-block;
+  padding: 10px 16px;
+  background-color: #007acc;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+a[routerLink="/prompt"]:hover {
+  background-color: #005f99;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+

@@ -20,4 +20,13 @@ export class CartComponent {
         console.error('Error fetching cart items:', error);
       });
   }
+  getSubtotal(): number {
+    return this.cartItems.reduce((total, item) => {
+      return total + item.Price * item.Quantity;
+    }, 0);
+  }
+  getTotalItems(): number {
+    return this.cartItems.reduce((total, item) => total + item.Quantity, 0);
+  }
+
 }

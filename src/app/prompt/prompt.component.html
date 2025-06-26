@@ -1,10 +1,22 @@
-<h3>Prompt:</h3>
-<textarea rows="10" cols="100" [(ngModel)]="promptText" ></textarea><br>
-<button (click)="SpeechToText()">Speech to Text</button>
-<p>{{ paragraphText() }}</p>
-<input type="file" (change)="onFileSelected($event)"/>
-<h3>Question:</h3>
-<textarea rows="5" cols="100" [(ngModel)]="questionText" ></textarea><br>
-<button (click)="askQuestion()">Ask Question</button>
-<h3>Response:</h3>
-<textarea rows="10" cols="100" [(ngModel)]="responseText" ></textarea>
+<div class="main-container">
+  <div class="input-column">
+    <h3>Prompt:</h3>
+    <textarea rows="10" cols="100" [(ngModel)]="promptText" placeholder="Enter the main prompt or context here..."></textarea><br>
+    <h3>Question:</h3>
+    <textarea rows="5" cols="100" [(ngModel)]="questionText" placeholder="Type your specific question here..."></textarea><br>
+    <div class="button-row">
+      <label class="custom-file-label">
+        {{ selectedFileName || 'Upload File' }}
+        <input type="file" (change)="onFileSelected($event)" class="custom-file-input" />
+      </label>
+      <button (click)="askQuestion()">Ask Question</button>
+      <button (click)="SpeechToText()">🎙️</button>
+    </div>
+    <p>{{ paragraphText() }}</p>
+  </div>
+
+  <div class="response-column">
+    <h3>Response:</h3>
+    <textarea rows="19" cols="100" [(ngModel)]="responseText" placeholder="The response will appear here..."></textarea>
+  </div>
+</div>

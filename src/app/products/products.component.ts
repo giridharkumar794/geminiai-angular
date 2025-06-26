@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-products',
@@ -9,14 +10,13 @@ import { Component } from '@angular/core';
 })
 export class ProductsComponent {
   products: any[] = [];
-  ngOnInit(): void {
-    fetch('http://localhost:3000')
-      .then(response => response.json())
-      .then(data => {
-        this.products = data;
-      })
-      .catch(error => {
-        console.error('Error fetching products:', error);
-      });
-    }
+  ps:any="";
+  constructor()
+  {
+    this.ps=inject(ProductService);
+  }
+  ngOnInit() 
+  {
+    this.products = this.ps.getProducts();
+  }
 }
